@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<ehcache>
+
+<!-- 缓存到硬盘的路径 -->
+
+
+<diskStore path="/Users/alvin/Dev/data/ehcache"/>
+
+<!-- 默认设备 maxElementsInMemory : 在内存中最缓存对象数量 eternal : 缓存的对象是否永远不变 timeToIdleSeconds : 可以控制对象的时间 timeToLiveSeconds : 缓存中对象的声明周期,是剪到后查询数据会从数据库中读取 overflowToDisk : 内存满了,是否要缓存到硬盘-->
+
+
+<defaultCache overflowToDisk="true" timeToLiveSeconds="60" timeToIdleSeconds="50" eternal="false" maxElementsInMemory="200"/>
+
+<!-- 指定缓存的对象 下面出现的属性覆盖上面出现的,没出现的继承上面的. <cache name="com.hibernate.bean.StudentStatus" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"/> -->
+
+
+</ehcache

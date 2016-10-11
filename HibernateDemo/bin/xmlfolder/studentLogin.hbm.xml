@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping>
+	<class name="com.qingke.hibernate.bean.StudentLogin" table="student_login">
+	<id name="id" column="id">
+		<generator class="assigned"/>
+	</id>
+	
+	<property name="usename" column="usename" />
+	<property name="password" column="password" />
+	
+	<one-to-one name="student" class="com.qingke.hibernate.bean.Student" />
+	</class>
+</hibernate-mapping>

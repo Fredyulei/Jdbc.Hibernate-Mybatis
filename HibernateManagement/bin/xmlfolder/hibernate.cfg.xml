@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+ 	PUBLIC "-//Hibernate//Hibernate Configurationn DTD//EN"
+ 	"http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+		<property name="show_sql">true</property>
+		
+		<!-- 配置JDBC Driver -->
+		<property name="connection.drive_class">com.mysql.jdbc.Driver</property>
+		
+		<!-- 配置数据库连接URL -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/order_management_system?useSSL=false</property>
+		
+		<!-- 配置数据库用户名 -->
+		<property name="connection.username">root</property>
+		
+		<!-- 配置数据库用户密码 -->
+		<property name="connection.password">150102</property>
+		
+		<!-- 配置Hibernate使用的数据库方言 -->
+		<property name="driver">org.hibernate.dialect.MySQLDialect</property>
+		<!-- ORMs -->
+		<mapping class="com.qingke.hibernatemana.bean.Client" />
+		<mapping class="com.qingke.hibernatemana.bean.ClientLogin" />
+	</session-factory>
+	
+</hibernate-configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping>
+	<class name="com.qingke.hibernate.bean.StudentStatus" table="student_status">
+	<id name="id" column="id">
+		<generator class="assigned"/>
+	</id>
+	
+	<property name="code" column="code" />
+	<property name="name" column="name" />
+	<property name="description"  column="description" />
+	<set name="students" cascade="all" inverse="true">
+	<key column="student_status_id" />
+	
+	<one-to-many  class="com.qingke.hibernate.bean.Student" />
+	</set>
+	</class>
+</hibernate-mapping>

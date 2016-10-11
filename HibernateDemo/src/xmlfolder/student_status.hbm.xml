@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping>
+	<class name="com.qingke.hibernate.bean.Student_status" table="student_status">
+	<id name="id" column="id">
+		<generator class="assigned"/>
+	</id>
+	
+	<property name="name" column="name" />
+	<property name="code" column="code" />
+	<property name="description"  column="description" />
+	</class>
+</hibernate-mapping>

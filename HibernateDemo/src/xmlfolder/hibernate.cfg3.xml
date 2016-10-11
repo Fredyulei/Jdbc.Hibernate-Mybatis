@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration
+ 	PUBLIC "-//Hibernate//Hibernate Configurationn DTD//EN"
+ 	"http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+
+<hibernate-configuration>
+
+
+<session-factory>
+
+<!-- 设置打印SQL语句 -->
+
+
+<property name="show_sql">true</property>
+
+<!-- 设置格式化后的SQL语句 -->
+
+
+<property name="format_sql">true</property>
+
+<!-- 设置开启二级缓存 -->
+
+
+<property name="hibernate.cache.use_second_level_cache">true</property>
+
+<!-- 设置二级缓存插件EhCache的provider类 -->
+
+
+<property name="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</property>
+
+<!-- 启动"查询缓存" -->
+
+
+<property name="hibernate.cache.use_query_cache">true</property>
+
+<!-- 配置JDBC Driver -->
+
+
+<property name="connection.drive_class">com.mysql.jdbc.Driver</property>
+
+<!-- 配置数据库连接URL -->
+
+
+<property name="connection.url">jdbc:mysql://localhost:3306/mydb?useSSL=false</property>
+
+<!-- 配置数据库用户名 -->
+
+
+<property name="connection.username">root</property>
+
+<!-- 配置数据库用户密码 -->
+
+
+<property name="connection.password">150102</property>
+
+<!-- 配置Hibernate使用的数据库方言 -->
+
+
+<property name="driver">org.hibernate.dialect.MySQLDialect</property>
+
+<!-- ORMs <mapping resource="student.hbm.xml"/> <mapping resource="apartment.hbm.xml"/> <mapping resource="schoolyear.hbm.xml"/> <mapping resource="studentLogin.hbm.xml"/> <mapping resource="studentStatus.hbm.xml"/> -->
+
+
+<!-- <mapping class="com.hibernate.bean.AcademyYear"/> <mapping class="com.hibernate.bean.Accommodation"/> <mapping class="com.hibernate.bean.Apartment"/> <mapping class="com.hibernate.bean.College"/> <mapping class="com.hibernate.bean.Course"/> <mapping class="com.hibernate.bean.CouresImpl"/> <mapping class="com.hibernate.bean.CourseTemplate"/> <mapping class="com.hibernate.bean.CourseTemplateType"/> <mapping class="com.hibernate.bean.Enrollment"/> <mapping class="com.hibernate.bean.Evaluation"/> <mapping class="com.hibernate.bean.Lecturer"/> <mapping class="com.hibernate.bean.Major"/> <mapping class="com.hibernate.bean.Registeration"/> -->
+
+
+<mapping class="com.qingke.hibernate.bean.Student"/>
+
+<!-- <mapping class="com.qingke.hibernate.bean.StudentLogin"/> -->
+
+<mapping class="com.qingke.hibernate.bean.StudentStatus"/>
+
+</session-factory>
+
+</hibernate-configuration>

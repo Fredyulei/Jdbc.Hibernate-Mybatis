@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.mapping.InvitationMapper" >
+  <resultMap id="BaseResultMap" type="test.domain.Invitation" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="inviter_user_id" property="inviterUserId" jdbcType="INTEGER" />
+    <result column="invitee_user_id" property="inviteeUserId" jdbcType="INTEGER" />
+    <result column="invite_time" property="inviteTime" jdbcType="TIMESTAMP" />
+    <result column="is_accepted" property="isAccepted" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, inviter_user_id, invitee_user_id, invite_time, is_accepted
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from invitation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByInviterUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from invitation
+    where inviter_user_id = #{inviterUserId,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from invitation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert"  useGeneratedKeys="true" parameterType="test.domain.Invitation" >
+    insert into invitation (id, inviter_user_id, invitee_user_id, 
+      invite_time, is_accepted)
+    values (#{id,jdbcType=INTEGER}, #{inviterUserId,jdbcType=INTEGER}, #{inviteeUserId,jdbcType=INTEGER}, 
+      #{inviteTime,jdbcType=TIMESTAMP}, #{isAccepted,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.domain.Invitation" >
+    insert into invitation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="inviterUserId != null" >
+        inviter_user_id,
+      </if>
+      <if test="inviteeUserId != null" >
+        invitee_user_id,
+      </if>
+      <if test="inviteTime != null" >
+        invite_time,
+      </if>
+      <if test="isAccepted != null" >
+        is_accepted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inviterUserId != null" >
+        #{inviterUserId,jdbcType=INTEGER},
+      </if>
+      <if test="inviteeUserId != null" >
+        #{inviteeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="inviteTime != null" >
+        #{inviteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAccepted != null" >
+        #{isAccepted,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.domain.Invitation" >
+    update invitation
+    <set >
+      <if test="inviterUserId != null" >
+        inviter_user_id = #{inviterUserId,jdbcType=INTEGER},
+      </if>
+      <if test="inviteeUserId != null" >
+        invitee_user_id = #{inviteeUserId,jdbcType=INTEGER},
+      </if>
+      <if test="inviteTime != null" >
+        invite_time = #{inviteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAccepted != null" >
+        is_accepted = #{isAccepted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.domain.Invitation" >
+    update invitation
+    set inviter_user_id = #{inviterUserId,jdbcType=INTEGER},
+      invitee_user_id = #{inviteeUserId,jdbcType=INTEGER},
+      invite_time = #{inviteTime,jdbcType=TIMESTAMP},
+      is_accepted = #{isAccepted,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

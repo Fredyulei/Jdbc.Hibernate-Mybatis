@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping>
+	<class name="com.qingke.hibernate.bean.Apartment" table="apartment">
+	<id name="id" column="id">
+		<generator class="assigned"/>
+	</id>
+	
+	<property name="building" column="building" />
+	<property name="floor" column="floor" />
+	<property name="foom"  column="foom" />
+	<property name="bed"  column="bed" />
+	
+	</class>
+</hibernate-mapping>
